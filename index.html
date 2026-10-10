@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>쑥쑥이 복약 도우미</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="page">
+
+  <!-- ===== 환자용 앱 화면 ===== -->
+  <div class="app" id="app">
+    <div id="banner" class="banner" hidden></div>
+
+    <div id="screens">
+      <section class="screen" id="s-home"></section>
+      <section class="screen" id="s-drugreg"></section>
+      <section class="screen" id="s-hospital"></section>
+      <section class="screen" id="s-appt"></section>
+      <section class="screen" id="s-care"></section>
+      <section class="screen" id="s-chat"></section>
+      <section class="screen" id="s-side"></section>
+      <section class="screen" id="s-plant"></section>
+      <section class="screen" id="s-record"></section>
+      <section class="screen" id="s-mymeds"></section>
+    </div>
+
+    <!-- 하단 탭: 9·10·11번 화면에서만 보임 (표시 순서 ① 복약 기록 / ② 내 식물 / ③ 부작용 상태) -->
+    <nav id="tabbar" class="tabbar" hidden aria-label="하단 탭"></nav>
+
+    <div id="modal" class="modal-layer" hidden></div>
+  </div>
+
+  <!-- 파일 선택창은 화면에 보이지 않고, 카메라·앨범 실행용으로만 사용 -->
+  <input type="file" id="fileDrug" accept="image/*" capture="environment" hidden>
+  <input type="file" id="fileRx" accept="image/*" hidden>
+
+  <!-- ===== 환자 화면과 분리된 별도 영역 ===== -->
+  <section class="side-section" id="guardianView">
+    <h2>보호자용 화면</h2>
+    <div id="guardianBody"></div>
+  </section>
+
+  <section class="side-section" id="doctorView">
+    <h2>의료진용 화면</h2>
+    <div id="doctorBody"></div>
+  </section>
+
+  <section class="admin" id="adminPanel">
+    <h2>관리자용 패널</h2>
+    <button class="btn btn-neutral" data-act="admin-med-alert">지금 약 먹을 시간 알림 띄우기</button>
+    <button class="btn btn-neutral" data-act="admin-reset-records">복약기록 처음 상태로 초기화</button>
+    <button class="btn btn-red" data-act="admin-reset-all">모든 내용 초기화</button>
+  </section>
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="script.js"></script>
+</body>
+</html>
